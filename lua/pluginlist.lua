@@ -2,12 +2,14 @@ return {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
+    "mhartington/formatter.nvim",
+    "mfussenegger/nvim-lint",
     {
         "loctvl842/monokai-pro.nvim",
         priority = 1000,
         config = function()
             require("monokai-pro").setup()
-            vim.cmd("colorscheme monokai-pro-spectrum")
+            vim.cmd("colorscheme monokai-pro-machine")
         end
     },
     {
@@ -52,6 +54,14 @@ return {
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
+        config = function()
+            require('nvim-treesitter.configs').setup({
+                ensure_installed = { 'vim', 'vimdoc', 'lua', 'cpp', 'python', 'dockerfile', 'vue', 'css', 'javascript', 'html'},
+                auto_install = false,
+                highlight = { enable = true },
+                indent = { enable = true },
+            })
+        end
     },
     'folke/neodev.nvim',
     {
@@ -63,7 +73,12 @@ return {
             'hrsh7th/cmp-nvim-lsp',
         },
     },
-    "lewis6991/gitsigns.nvim",
+    {
+        "lewis6991/gitsigns.nvim",
+        config = function()
+            require("gitsigns").setup()
+        end
+    },
     "sindrets/diffview.nvim",
     {
         'rmagatti/auto-session',

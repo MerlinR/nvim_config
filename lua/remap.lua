@@ -9,7 +9,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- nicer find next
 vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "n", "Nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
 
 -- Leader paste over visual without storing visual
 vim.keymap.set("x", "<leader>p", "\"_dP")
@@ -21,4 +21,8 @@ vim.keymap.set("n", "<leader>gr", "<Cmd>Gitsigns reset_hunk<CR>")
 
 vim.keymap.set("n", "<leader>gh", "<Cmd>DiffviewOpen<CR>")
 
+
+-- FORMAT
+vim.keymap.set("n", "<leader>f", "<Cmd>FormatWrite<CR>")
+vim.keymap.set("n", "<leader>F", "<Cmd>Format<CR>")
 
